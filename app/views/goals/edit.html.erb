@@ -1,0 +1,43 @@
+<form action="<%= goal_url(@goal) %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>Title
+    <input type="text" name="goal[title]" value="<%= @goal.title %>">
+  </label>
+  
+  <br>
+  
+  <label>Goal Privacy
+    <label>Private
+      
+      <input type="radio" name="goal[private]" value="true" id="Private"
+        <%= "selected" if @goal.private %>>
+    </label>
+    <label>Public
+      <input type="radio" name="goal[private]" value="false" id="Public"
+        <%= "selected" unless @goal.private %>>
+    </label>
+  </label>
+  
+  <br>
+  
+  <label>Goal Status
+    <select name="goal[status]">
+      <option name="goal[status]"
+              value="COMPLETE"
+              >
+              Complete
+      </option>
+      
+      <option name="goal[status]"
+              value="INCOMPLETE"
+              >
+              Incomplete
+      </option>
+    </select>
+  </label>
+
+  <br>
+
+  <p><input type="submit" value="Edit Goal"></p>
+</form>

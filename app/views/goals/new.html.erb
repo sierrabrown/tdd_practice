@@ -1,0 +1,42 @@
+<form action="<%= goals_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label>Title
+    <input type="text" name="goal[title]" value="<%= @goal.title %>">
+  </label>
+  
+  <br>
+  
+  <label>Goal Privacy
+    <label>Private
+      
+      <input type="radio" name="goal[private]" value="true" id="Private"
+        <%= "selected" if @goal.private %>>
+    </label>
+    <label>Public
+      <input type="radio" name="goal[private]" value="false" id="Public"
+        <%= "selected" unless @goal.private %>>
+    </label>
+  </label>
+  
+  <br>
+  
+  <label>Goal Status
+    <select name = "goal[status]">
+      <option
+              value="INCOMPLETE"
+              <%= "selected" if @goal.status == "INCOMPLETE" %>>
+              Incomplete
+      </option>
+      <option
+              value="COMPLETE"
+              <%= "selected" if @goal.status == "COMPLETE" %>>
+              Complete
+      </option>
+    </select>
+  </label>
+
+  <br>
+
+  <p><input type="submit" value="Create New Goal"></p>
+</form>

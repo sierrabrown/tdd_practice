@@ -1,0 +1,19 @@
+<h1>Sign In!</h1>
+
+<%= render 'helpers/errors' %>
+
+<form action="<%= session_url %>" method="post">
+  <input type="hidden" 
+  name="authenticity_token" 
+  value="<%= form_authenticity_token %>">
+  
+  <label>E-Mail
+  <input type="email" name="user[email]" value="<%= @user.email %>">
+  </label>
+  
+  <label>Password
+  <input type="password" name="user[password]">
+  </label>
+  
+  <p><input type="submit" value="Sign In!"></p>
+</form>
